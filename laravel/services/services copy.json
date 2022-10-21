@@ -1,0 +1,40 @@
+[
+    {
+
+        "title" : "Web Development",
+        "slug" : "web-development"
+
+    },
+    {
+
+        "title" : "Mobile App Development",
+        "slug" : "mobile-application-development"
+
+    },
+    {
+
+        "title" : "UI/UX Design",
+        "slug" : "ui-ux-design"
+
+    },
+    {
+
+        "title" : "Search Engine Optimization",
+        "slug" : "search-engine-optimization"
+
+    },
+    {
+
+        "title" : "Ecommerce Development",
+        "slug" : "ecommerce-development"
+
+    },
+    {
+
+        "title" : "Social Media Marketing",
+        "slug" : "social-media-marketing"
+
+    }
+]
+
+
