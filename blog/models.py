@@ -1,3 +1,4 @@
+from email.policy import default
 from django.db import models
 from ckeditor.fields import RichTextField
 from django.utils.text import slugify
@@ -13,6 +14,8 @@ User = get_user_model()
 class Post(models.Model):
     title = models.CharField(max_length=255, null=False, blank=False)
     slug = models.SlugField(null=False, blank=True)
+    thumbnail = models.ImageField(upload_to="blogs")
+    excerpt = models.TextField()
     content = RichTextField()
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, null=True, blank=True)
@@ -20,7 +23,7 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-    seo = models.OneToOneField("Seo", on_delete=models.CASCADE)
+    seo = models.OneToOneField("Seo", on_delete=models.CASCADE, default=None)
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
@@ -33,8 +36,40 @@ class Post(models.Model):
         return reverse("blog_detail", kwargs={"slug": self.slug})
 
 
+class Comment(models.Model):
+    name = models.CharField(max_length=50)
+    email = models.EmailField()
+    comment = models.TextField()
+    post = models.ForeignKey(
+        Post, on_delete=models.CASCADE, related_name="comments")
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        super(Comment, self).save(*args, **kwargs)
+
+
+class Category(models.Model):
+    name = models.CharField(max_length=50)
+    slug = models.SlugField(null=False, blank=True)
+    parent = models.ForeignKey(
+        "self", on_delete=models.PROTECT, null=True, blank=True, related_name='children')
+
+    def __str__(self) -> str:
+        return self.name
+
+    def get_all_children(self, include_self=True):
+        r = []
+        if include_self:
+            r.append(self)
+        for c in Category.objects.filter(parent=self):
+            _r = c.get_all_children(include_self=True)
+            if 0 < len(_r):
+                r.extend(_r)
+        return r
+
+
 class Seo(models.Model):
-    seo_tag = models.ManyToManyField('SeoProperty')
+    seo_tag = models.ManyToManyField('SeoProperty', default=None)
 
 
 class SeoProperty(models.Model):

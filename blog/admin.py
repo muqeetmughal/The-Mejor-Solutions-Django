@@ -3,7 +3,7 @@ from django import forms
 from ckeditor.widgets import CKEditorWidget
 from django_reverse_admin import ReverseModelAdmin
 
-from .models import Post, Seo, SeoProperty
+from .models import Category, Comment, Post, Seo, SeoProperty
 
 # from rollyourown.seo.admin import register_seo_admin
 from django.contrib import admin
@@ -31,8 +31,8 @@ class PostAdminForm(forms.ModelForm):
 
 class PostAdmin(ReverseModelAdmin):
     form = PostAdminForm
-    exclude = ('slug',)
-    readonly_fields = ["author"]
+    # exclude = ('slug',)
+    readonly_fields = ["author", "slug"]
     list_display = ["title", "author"]
 
     inline_type = 'tabular'
@@ -53,3 +53,5 @@ class PostAdmin(ReverseModelAdmin):
 admin.site.register(Post, PostAdmin)
 admin.site.register(Seo)
 admin.site.register(SeoProperty)
+admin.site.register(Comment)
+admin.site.register(Category)

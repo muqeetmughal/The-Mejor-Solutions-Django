@@ -35,11 +35,12 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.sites',
     # 'rollyourown.seo',
-	'django.contrib.sitemaps',
+    'django.contrib.sitemaps',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'web',
     'blog',
     'ckeditor',
 ]
@@ -131,5 +132,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'assets')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
 SITE_TITLE = "The Mejor Solutions"
 CKEDITOR_UPLOAD_PATH = "ckeditor_uploads/"
