@@ -1,4 +1,7 @@
-{% extends 'base.html' %} {% block content %}
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
 
 <div role="main" class="main">
   <section
@@ -90,123 +93,12 @@
             <h3
               class="text-color-dark text-capitalize font-weight-bold text-5 m-0 mb-3"
             >
-              3 comments for "{{post.title}}"
+            {{post.comments.count}} comments for "{{post.title}}"
             </h3>
 
             <ul class="comments">
-              <li>
-                <div class="comment">
-                  <div
-                    class="img-thumbnail img-thumbnail-no-borders bg-transparent d-none d-sm-block"
-                  >
-                    <img
-                      class="avatar rounded-circle"
-                      alt=""
-                      src="img/avatars/avatar-2.jpg"
-                    />
-                  </div>
-                  <div class="comment-block">
-                    <div class="comment-arrow"></div>
-                    <span class="comment-by">
-                      <strong class="text-dark">John Doe</strong>
-                      <span class="float-end">
-                        <span>
-                          <a href="#"
-                            ><i class="fas fa-reply"></i> Reply</a
-                          ></span
-                        >
-                      </span>
-                    </span>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Nam viverra euismod odio, gravida pellentesque urna varius
-                      vitae, gravida pellentesque urna varius vitae. Lorem ipsum
-                      dolor sit amet, consectetur adipiscing elit. Nam viverra
-                      euismod odio, gravida pellentesque urna varius vitae. Sed
-                      dui lorem, adipiscing in adipiscing et, interdum nec
-                      metus. Mauris ultricies, justo eu convallis placerat,
-                      felis enim ornare nisi, vitae mattis nulla ante id dui.
-                    </p>
-                    <span class="date float-end"
-                      >January 12, 2022 at 1:38 pm</span
-                    >
-                  </div>
-                </div>
-
-                <ul class="comments reply">
-                  <li>
-                    <div class="comment">
-                      <div
-                        class="img-thumbnail img-thumbnail-no-borders d-none d-sm-block"
-                      >
-                        <img
-                          class="avatar rounded-circle"
-                          alt=""
-                          src="img/avatars/avatar-3.jpg"
-                        />
-                      </div>
-                      <div class="comment-block">
-                        <div class="comment-arrow"></div>
-                        <span class="comment-by">
-                          <strong class="text-dark">John Doe</strong>
-                          <span class="float-end">
-                            <span>
-                              <a href="#"
-                                ><i class="fas fa-reply"></i> Reply</a
-                              ></span
-                            >
-                          </span>
-                        </span>
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit. Nam viverra euismod odio, gravida pellentesque
-                          urna varius vitae, gravida pellentesque urna varius
-                          vitae.
-                        </p>
-                        <span class="date float-end"
-                          >January 12, 2022 at 1:38 pm</span
-                        >
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="comment">
-                      <div
-                        class="img-thumbnail img-thumbnail-no-borders d-none d-sm-block"
-                      >
-                        <img
-                          class="avatar rounded-circle"
-                          alt=""
-                          src="img/avatars/avatar-4.jpg"
-                        />
-                      </div>
-                      <div class="comment-block">
-                        <div class="comment-arrow"></div>
-                        <span class="comment-by">
-                          <strong class="text-dark">John Doe</strong>
-                          <span class="float-end">
-                            <span>
-                              <a href="#"
-                                ><i class="fas fa-reply"></i> Reply</a
-                              ></span
-                            >
-                          </span>
-                        </span>
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit. Nam viverra euismod odio, gravida pellentesque
-                          urna varius vitae, gravida pellentesque urna varius
-                          vitae.
-                        </p>
-                        <span class="date float-end"
-                          >January 12, 2022 at 1:38 pm</span
-                        >
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-              </li>
-              <li>
+           
+              <li v-for="comment in comments" :key="comment.id">
                 <div class="comment">
                   <div
                     class="img-thumbnail img-thumbnail-no-borders d-none d-sm-block"
@@ -220,7 +112,7 @@
                   <div class="comment-block">
                     <div class="comment-arrow"></div>
                     <span class="comment-by">
-                      <strong class="text-dark">John Doe</strong>
+                      <strong class="text-dark">[[comment.name]]</strong>
                       <span class="float-end">
                         <span>
                           <a href="#"
@@ -230,39 +122,7 @@
                       </span>
                     </span>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    </p>
-                    <span class="date float-end"
-                      >January 12, 2022 at 1:38 pm</span
-                    >
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="comment">
-                  <div
-                    class="img-thumbnail img-thumbnail-no-borders d-none d-sm-block"
-                  >
-                    <img
-                      class="avatar rounded-circle"
-                      alt=""
-                      src="img/avatars/avatar.jpg"
-                    />
-                  </div>
-                  <div class="comment-block">
-                    <div class="comment-arrow"></div>
-                    <span class="comment-by">
-                      <strong class="text-dark">John Doe</strong>
-                      <span class="float-end">
-                        <span>
-                          <a href="#"
-                            ><i class="fas fa-reply"></i> Reply</a
-                          ></span
-                        >
-                      </span>
-                    </span>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      [[comment.comment]]
                     </p>
                     <span class="date float-end"
                       >January 12, 2022 at 1:38 pm</span
@@ -529,4 +389,5 @@
   </div>
 </div>
 
+<script src={% static 'frontend/js/blog-details.js' %}></script>
 {% endblock content %}

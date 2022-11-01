@@ -50,6 +50,12 @@
 		<!-- Head Libs -->
 		<script src={% static 'frontend/vendor/modernizr/modernizr.min.js' %}></script>
 
+		
+		<script src="https://unpkg.com/vue@3.0.2"></script>
+		
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.6/dayjs.min.js" integrity="sha512-hcV6DX35BKgiTiWYrJgPbu3FxS6CsCjKgmrsPRpUPkXWbvPiKxvSVSdhWX0yXcPctOI2FJ4WP6N1zH+17B/sAA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	</head>
 	<body>
 
@@ -91,13 +97,13 @@
 														</a>
 														<ul class="dropdown-menu">
 
-															{% comment %} @foreach ($services as $service)
+															{% for service in services %}
 															<li>
-																<a class="dropdown-item font-weight-normal" href={{"/services/".$service->slug}}>
-																	{{$service->title}}
+																<a class="dropdown-item font-weight-normal" href="/services/{{service.slug}}">
+																	{{service.name}}
 																</a>
 															</li>
-															@endforeach {% endcomment %}
+															{% endfor %}
 															
 														</ul>
 													</li>

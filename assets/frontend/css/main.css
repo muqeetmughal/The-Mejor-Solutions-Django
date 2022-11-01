@@ -20,7 +20,7 @@ body {
 */
 @font-face {
     font-family: "Fontello";
-    src: url("/frontend/css/fonts/demos/digital-agency-2/fontello.woff2") format("woff2"), url("/frontend/css/fonts/demos/digital-agency-2/fontello.woff") format("woff"), url("/frontend/fonts/demos/digital-agency-2/fontello.ttf") format("ttf"), url("/frontend/css/fonts/demos/digital-agency-2/fontello.eot") format("eot");
+    src: url("/static/frontend/css/fonts/demos/digital-agency-2/fontello.woff2") format("woff2"), url("/frontend/css/fonts/demos/digital-agency-2/fontello.woff") format("woff"), url("/static/frontend/fonts/demos/digital-agency-2/fontello.ttf") format("ttf"), url("/static/frontend/css/fonts/demos/digital-agency-2/fontello.eot") format("eot");
 }
 
 /*

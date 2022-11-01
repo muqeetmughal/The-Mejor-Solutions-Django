@@ -1,5 +1,5 @@
 {% load static %}
-<section class="get-in-touch bg-color-after-secondary overlay overlay-color-primary overlay-show p-relative overflow-hidden" style="background-image: url('/frontend/img/demos/digital-agency-2/bg/Footer image.jpg'); background-size: cover; background-position: center;">
+<section class="get-in-touch bg-color-after-secondary overlay overlay-color-primary overlay-show p-relative overflow-hidden" style="background-image: url('{% static 'frontend/img/demos/digital-agency-2/bg/Footer image.jpg' %}'); background-size: cover; background-position: center;">
 	<span class="custom-circle custom-circle-1 bg-color-light appear-animation" data-appear-animation="zoomIn" data-appear-animation-delay="100"></span>
 	<span class="custom-circle custom-circle-2 bg-color-light appear-animation" data-appear-animation="zoomIn" data-appear-animation-delay="100"></span>
 	<div class="container">
@@ -100,6 +100,9 @@
 				</div>
 			</footer>
 		</div>
+
+
+		
 
 		<!-- Vendor -->
 		<script src={% static 'frontend/vendor/plugins/js/plugins.min.js' %}></script>

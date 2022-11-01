@@ -1,3 +1,4 @@
+
 from django.shortcuts import render
 
 from blog.models import Category, Post
@@ -20,4 +21,6 @@ def blog_detail(request, slug):
 
     categories = Category.objects.all()
 
-    return render(request, "blog/detail.html", context={"post": post, "recent_posts": recent_posts, "categories" : categories})
+    return render(request, "blog/detail.html", context={"post": post, "recent_posts": recent_posts, "categories": categories})
+
+
