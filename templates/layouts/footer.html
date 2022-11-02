@@ -12,7 +12,7 @@
 				</h4>
 			</div>
 			<div class="col-lg-4 d-flex align-items-center justify-content-start justify-content-lg-end mt-5 mt-lg-0">
-				<a herf="/contact" class="btn btn-outline custom-btn-outline btn-light border-white rounded-0 px-4 py-3 text-color-light text-color-hover-dark bg-color-hover-light custom-text-6 line-height-6 font-weight-semibold custom-btn-with-arrow appear-animation" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="600">Let’s Talk!</a>
+				<a href="/contact" class="btn btn-outline custom-btn-outline btn-light border-white rounded-0 px-4 py-3 text-color-light text-color-hover-dark bg-color-hover-light custom-text-6 line-height-6 font-weight-semibold custom-btn-with-arrow appear-animation" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="600">Let’s Talk!</a>
 			</div>
 		</div>
 	</div>
@@ -31,9 +31,9 @@
 									<strong>Success!</strong> You've been added to our email list.
 								</div>
 								<div class="alert alert-danger d-none" id="newsletterError"></div>
-								<form id="newsletterForm" action="php/newsletter-subscribe.php" method="POST" class="me-0 mb-3 mb-md-0 opacity-10">
+								<form id="newsletterFormCustom" action="/subscribe" method="POST" class="me-0 mb-3 mb-md-0 opacity-10">
 									<div class="input-group custom-newsletter">
-										<input class="form-control form-control-sm custom-newsletter-input rounded-0 bg-transparent border-0 ps-0 custom-text-2 text-color-light box-shadow-none" placeholder="Your E-mail Address" name="newsletterEmail" id="newsletterEmail" type="email">
+										<input required class="form-control form-control-sm custom-newsletter-input rounded-0 bg-transparent border-0 ps-0 custom-text-2 text-color-light box-shadow-none" placeholder="Your E-mail Address" name="newsletterEmail" id="newsletterEmail" type="email">
 										<button class="btn text-color-light custom-text-4 font-weight-semibold custom-btn-with-arrow custom-btn-with-arrow-light" type="submit">Sign Up</button>
 									</div>
 								</form>

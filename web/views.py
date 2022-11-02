@@ -1,8 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse, redirect
 
-from web.models import Service, Work
+from web.models import Service, Work, Contact, JobApplication, NewsLetter
 from django.shortcuts import get_object_or_404
-
+from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 
 
@@ -42,9 +42,58 @@ def works(request):
     return render(request, "web/works.html", context=context)
 
 
+@csrf_exempt
 def contact(request):
+    if request.method == "POST":
+        name = request.POST.get("name")
+        phone = request.POST.get("phone")
+        email = request.POST.get("email")
+        subject = request.POST.get("subject")
+        message = request.POST.get("message")
+
+        Contact.objects.create(name=name, phone=phone,
+                               email=email, subject=subject, message=message)
+
+        print("Form Submission")
     return render(request, "web/contact.html")
 
 
+@csrf_exempt
 def careers(request):
+    if request.method == "POST" and request.FILES['resume']:
+        name = request.POST.get("name")
+        phone = request.POST.get("phone")
+        email = request.POST.get("email")
+        subject = request.POST.get("subject")
+        designation = request.POST.get("designation")
+
+        about = request.POST.get("about")
+
+        resume = request.FILES['resume']
+
+        JobApplication.objects.create(name=name, phone=phone,
+                                      email=email, subject=subject, about=about, designation=designation, resume=resume)
+
+        print("Form Submission", request.POST)
     return render(request, "web/careers.html")
+
+
+@csrf_exempt
+def subscribe(request):
+    if request.method == "POST":
+        email = request.POST.get("newsletterEmail")
+
+        try:
+
+            NewsLetter.objects.create(email=email)
+
+        except Exception as e:
+            return HttpResponse("Already subscribed")
+
+        # JobApplication.objects.create(name=name, phone=phone,
+        #                               email=email, subject=subject, about=about, designation=designation, resume=resume)
+
+        print("Form Submission", request.POST)
+        return redirect("/")
+    else:
+        return HttpResponse("Not Allowed")

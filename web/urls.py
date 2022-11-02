@@ -11,5 +11,6 @@ urlpatterns = [
     path("portfolio", web_views.works),
     path("contact", web_views.contact),
     path("careers", web_views.careers),
+    path("subscribe", web_views.subscribe),
 
 ]

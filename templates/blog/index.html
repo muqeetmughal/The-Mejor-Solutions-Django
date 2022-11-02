@@ -1,9 +1,12 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
 
 <div role="main" class="main">
   <section
     class="page-header page-header-modern page-header-background bg-color-dark p-relative z-index-1 lazyload"
-    data-bg-src="img/demos/digital-agency-2/bg/page-header-bg.jpg"
+    data-bg-src={% static "frontend/img/demos/digital-agency-2/bg/page-header-bg.jpg" %}
   >
     <span
       class="custom-circle custom-circle-1 bg-color-light custom-circle-blur appear-animation"

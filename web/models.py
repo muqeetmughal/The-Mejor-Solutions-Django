@@ -58,12 +58,18 @@ class Contact(models.Model):
     message = models.TextField()
 
 
-
 class JobApplication(models.Model):
     name = models.CharField(max_length=100)
     phone = models.CharField(max_length=13, null=True, blank=True)
-    email = models.EmailField()
+    email = models.EmailField(unique=True)
     subject = models.CharField(max_length=255)
     designation = models.CharField(max_length=100)
     resume = models.ImageField(upload_to="resume")
-    message = models.TextField()
+    about = models.TextField()
+
+
+class NewsLetter(models.Model):
+    email = models.EmailField(unique=True)
+
+    def __str__(self) -> str:
+        return self.email
