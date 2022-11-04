@@ -5,6 +5,8 @@ from django.shortcuts import get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 
+from django.contrib import messages
+
 
 def home(request):
     return render(request, "web/home.html")
@@ -54,7 +56,11 @@ def contact(request):
         Contact.objects.create(name=name, phone=phone,
                                email=email, subject=subject, message=message)
 
+        messages.success(
+            request, 'Thanks for contacting us we will contact you back soon')
+
         print("Form Submission")
+        return redirect("/")
     return render(request, "web/contact.html")
 
 
@@ -74,7 +80,12 @@ def careers(request):
         JobApplication.objects.create(name=name, phone=phone,
                                       email=email, subject=subject, about=about, designation=designation, resume=resume)
 
-        print("Form Submission", request.POST)
+        # print("Form Submission", request.POST)
+
+        messages.success(
+            request, 'Your Application has bee submitted')
+
+        return redirect("/")
     return render(request, "web/careers.html")
 
 
@@ -94,6 +105,10 @@ def subscribe(request):
         #                               email=email, subject=subject, about=about, designation=designation, resume=resume)
 
         print("Form Submission", request.POST)
+
+        messages.success(
+            request, 'Thanks for subscribing The Mejor Solutions')
+
         return redirect("/")
     else:
         return HttpResponse("Not Allowed")
