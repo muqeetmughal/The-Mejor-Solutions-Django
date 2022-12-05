@@ -1,8 +1,27 @@
 version: '3.9'
 
 services:
-  django:
-    image: django-docker:0.0.1
-    build : .
+  website:
+    build:
+      context: .
+    volumes:
+      - .:/app
+      - static:/static
+    env_file:
+      - .env
     ports:
       - "8000:8000"
+    # image: django-tms:v1
+    # container_name: tms_website_container
+    # command : python manage.py runserver 0.0.0.0:8000
+  nginx:
+    build: ./nginx
+    volumes:
+      - static:/static
+    ports:
+      - "80:80"
+    depends_on:
+      - website
+
+volumes:
+  static:
