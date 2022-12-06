@@ -13,4 +13,4 @@ RUN pip3 install -r requirements.txt
 COPY . .
 
 COPY ./entrypoint.sh /
-ENTRYPOINT ["sudo", "sh", "/entrypoint.sh" ]
+ENTRYPOINT ["sh", "/entrypoint.sh" ]
