@@ -8,9 +8,9 @@ WORKDIR /app
 
 COPY requirements.txt requirements.txt
 
-RUN sudo pip install -r requirements.txt
+RUN pip install -r requirements.txt
 
 COPY . .
 
 COPY ./entrypoint.sh /
-ENTRYPOINT [ "sh", "/entrypoint.sh" ]
+ENTRYPOINT ["sudo", "sh", "/entrypoint.sh" ]
