@@ -2,7 +2,7 @@ FROM python:3.10-alpine
 
 ENV PYTHONUNBUFFERED=1
 
-RUN sudo pip install --upgrade pip
+RUN pip install --upgrade pip
 
 WORKDIR /app
 
