@@ -2,13 +2,13 @@ FROM python:3.10-alpine
 
 ENV PYTHONUNBUFFERED=1
 
-RUN pip install --upgrade pip
+RUN sudo pip install --upgrade pip
 
 WORKDIR /app
 
 COPY requirements.txt requirements.txt
 
-RUN pip install -r requirements.txt
+RUN sudo pip install -r requirements.txt
 
 COPY . .
 
