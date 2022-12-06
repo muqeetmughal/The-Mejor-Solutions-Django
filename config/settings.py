@@ -150,3 +150,6 @@ MESSAGE_TAGS = {
     messages.WARNING: 'alert-warning',
     messages.ERROR: 'alert-danger',
 }
+
+
+CSRF_TRUSTED_ORIGINS=['http://192.168.4.23']
