@@ -4,6 +4,7 @@ services:
   website:
     build:
       context: .
+      network: host
     volumes:
       # - .:/app
       - static:/app/static
