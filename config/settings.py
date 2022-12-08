@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure--l-51rgqb)qf2+80q@prr49ui#x621%@0*svz0k$s6l-m6a)!h
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['django','themejorsolutions.com']
+ALLOWED_HOSTS = ['django','themejorsolutions.com','192.168.4.23']
 SITE_ID = 1
 
 # Application definition
@@ -152,4 +152,4 @@ MESSAGE_TAGS = {
 }
 
 
-CSRF_TRUSTED_ORIGINS=['http://192.168.4.23','themejorsolutions.com']
+CSRF_TRUSTED_ORIGINS=['http://192.168.4.23','http://themejorsolutions.com','https://themejorsolutions.com']
