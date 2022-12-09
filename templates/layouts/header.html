@@ -1,4 +1,5 @@
 {% load static %}
+{% load active_link_tags %}
 <!DOCTYPE html>
 <html class="light">
 	<head>
@@ -84,17 +85,17 @@
 											<nav class="collapse">
 												<ul class="nav nav-pills" id="mainNav">
 													<li class="dropdown-primary">
-														<a class="nav-link text-capitalize font-weight-semibold custom-text-3 active" href="/">
+														<a class="nav-link text-capitalize font-weight-semibold custom-text-3"  href="{% url 'home' %}">
 															Home
 														</a>
 													</li>
 													<li class="dropdown-primary">
-														<a class="nav-link text-capitalize font-weight-semibold custom-text-3" href="/about-us">
+														<a class="nav-link text-capitalize font-weight-semibold custom-text-3 {% active_link 'about' %}" href="{% url 'about' %}">
 															About Us
 														</a>
 													</li>
 													<li class="dropdown">
-														<a class="nav-link dropdown-toggle text-capitalize font-weight-semibold custom-text-3" class="dropdown-toggle" href="/services">
+														<a class="nav-link dropdown-toggle text-capitalize font-weight-semibold custom-text-3 {% active_link 'services' %}" class="dropdown-toggle" href="{% url 'services' %}">
 															Our Services
 														</a>
 														<ul class="dropdown-menu">
@@ -110,22 +111,22 @@
 														</ul>
 													</li>
 													<li class="dropdown-primary">
-														<a class="nav-link text-capitalize font-weight-semibold custom-text-3" href="/portfolio">
+														<a class="nav-link text-capitalize font-weight-semibold custom-text-3 {% active_link 'work' %}" href="{% url 'work' %}">
 															Our Work
 														</a>
 													</li>
 													<li class="dropdown-primary">
-														<a class="nav-link text-capitalize font-weight-semibold custom-text-3" href="/blog">
+														<a class="nav-link text-capitalize font-weight-semibold custom-text-3 {% active_link 'blog_home' %}" href="{% url 'blog_home' %}">
 															Blog
 														</a>
 													</li>
 													<li class="dropdown-primary">
-														<a class="nav-link text-capitalize font-weight-semibold custom-text-3" href="/contact">
+														<a class="nav-link text-capitalize font-weight-semibold custom-text-3 {% active_link 'contact' %}" href="{% url 'contact' %}">
 															Contact Us
 														</a>
 													</li>
 													<li class="dropdown-primary">
-														<a class="nav-link text-capitalize font-weight-semibold custom-text-3" href="/careers">
+														<a class="nav-link text-capitalize font-weight-semibold custom-text-3 {% active_link 'careers' %}" href="{% url 'careers' %}">
 															Careers
 														</a>
 													</li>
