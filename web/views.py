@@ -9,7 +9,13 @@ from django.contrib import messages
 
 
 def home(request):
-    return render(request, "web/home.html")
+    services = Service.objects.all()
+    works = Work.objects.all()
+    context = {
+        "services": services,
+        "works": works
+    }
+    return render(request, "web/home.html", context=context)
 
 
 def about(request):
