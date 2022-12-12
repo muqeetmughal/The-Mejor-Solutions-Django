@@ -3,17 +3,18 @@ from django.shortcuts import render, HttpResponse, redirect
 from web.models import Service, Work, Contact, JobApplication, NewsLetter
 from django.shortcuts import get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
-# Create your views here.
-
+from blog.models import Post
 from django.contrib import messages
 
 
 def home(request):
     services = Service.objects.all()
     works = Work.objects.all()
+    insights = Post.objects.all().order_by('-id')[:3]
     context = {
         "services": services,
-        "works": works
+        "works": works,
+        "insights": insights
     }
     return render(request, "web/home.html", context=context)
 
