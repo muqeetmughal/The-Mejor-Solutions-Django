@@ -50,7 +50,7 @@
                         <div class="row w-100 mb-4 isotope-item {% for service in work.services.all %}{{service.slug}} {% endfor %}">
                             <div class="col-sm-12 custom-our-work overlay overlay-op-7 overlay-show p-0">
                                 <a href={{work.get_absolute_url}} class="d-block h-100">
-                                    <img src={{work.thumbnail.url}} class="w-50 h-100">
+                                    <img src={{work.thumbnail.url}} class="w-100 h-100 work-img">
                                     <div class="w-100 custom-our-work-text px-5 py-3 d-flex align-items-end p-absolute bottom-0">
                                         <div class="text-start p-relative z-index-2 mb-3">
                                             <h4 class="text-color-light custom-text-8 font-weight-bold text-decoration-none mb-2">{{work.name}}</h4>

@@ -73,3 +73,8 @@ class NewsLetter(models.Model):
 
     def __str__(self) -> str:
         return self.email
+
+class Testimonial(models.Model):
+    content = models.TextField()
+    company = models.CharField(max_length=100)
+    name = models.CharField(max_length=50)

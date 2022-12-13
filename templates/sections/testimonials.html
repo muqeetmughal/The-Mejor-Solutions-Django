@@ -1,0 +1,89 @@
+<style>
+  .testimonial.testimonial-light blockquote:before,
+  .testimonial.testimonial-light blockquote:after,
+  .testimonial.testimonial-light blockquote p {
+    color: black;
+  }
+</style>
+
+<section
+  class="section section-height-3 bg-light border-0 m-0 appear-animation animated fadeIn appear-animation-visible"
+  data-appear-animation="fadeIn"
+  data-appear-animation-delay="200"
+  style="animation-delay: 200ms"
+>
+  <div class="container">
+    <div class="row">
+      <div class="col text-center">
+        <h2
+          class="text-color-dark font-weight-bold text-9 mb-4 appear-animation animated fadeInUpShorterPlus appear-animation-visible"
+          data-appear-animation="fadeInUpShorterPlus"
+          data-appear-animation-delay="600"
+          style="animation-delay: 600ms"
+        >
+          Testimonials
+        </h2>
+      </div>
+    </div>
+    <div
+      class="row justify-content-center appear-animation animated fadeInUpShorterPlus appear-animation-visible"
+      data-appear-animation="fadeInUpShorterPlus"
+      data-appear-animation-delay="800"
+      style="animation-delay: 800ms"
+    >
+      <div class="col-lg-10">
+        <div
+          class="owl-carousel owl-theme nav-bottom rounded-nav dots-dark custom-dots-style-1 mb-0 owl-loaded owl-drag owl-carousel-init"
+          data-plugin-options="{'items': 1, 'loop': false}"
+          style="height: auto"
+        >
+          <div class="owl-stage-outer">
+            <div
+              class="owl-stage"
+              style="
+                transform: translate3d(0px, 0px, 0px);
+                transition: all 0s ease 0s;
+                width: 2778px;
+              "
+            >
+              {% for testimonial in testimonials %}
+              <div class="owl-item" style="width: 926px">
+                <div>
+                  <div
+                    class="testimonial testimonial-style-2 testimonial-with-quotes testimonial-remove-right-quote testimonial-light mb-4"
+                  >
+                    <blockquote>
+                      <p
+                        class="text-color-dark opacity-7 text-5 line-height-5 mb-0"
+                      >
+                        {{testimonial.content}}
+                      </p>
+                    </blockquote>
+                    <div class="testimonial-author">
+                      <span
+                        class="d-block text-color-dark opacity-7 font-weight-bold line-height-1 text-3 mb-1"
+                        >{{testimonial.company}}</span
+                      >
+                      <strong class="font-weight-bold text-color-light text-5"
+                        >{{testimonial.name}}</strong
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+          <div class="owl-nav disabled">
+            <button type="button" role="presentation" class="owl-prev"></button
+            ><button
+              type="button"
+              role="presentation"
+              class="owl-next"
+            ></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

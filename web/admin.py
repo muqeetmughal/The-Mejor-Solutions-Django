@@ -1,5 +1,5 @@
 from django.contrib import admin
-from web.models import Contact, JobApplication, Profile, Service, Work, NewsLetter
+from web.models import Contact, JobApplication, Profile, Service, Work, NewsLetter, Testimonial
 # Register your models here.
 admin.site.register(Profile)
 
@@ -19,3 +19,4 @@ admin.site.register(Work, WorkAdmin)
 admin.site.register(Contact)
 admin.site.register(JobApplication)
 admin.site.register(NewsLetter)
+admin.site.register(Testimonial)
