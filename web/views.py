@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponse, redirect
 
-from web.models import Service, Work, Contact, JobApplication, NewsLetter
+from web.models import Service, Work, Contact, JobApplication, NewsLetter, Testimonial
 from django.shortcuts import get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
 from blog.models import Post
@@ -11,10 +11,12 @@ def home(request):
     services = Service.objects.all()
     works = Work.objects.all()
     insights = Post.objects.all().order_by('-id')[:3]
+    testimonials = Testimonial.objects.all()
     context = {
         "services": services,
         "works": works,
-        "insights": insights
+        "insights": insights,
+        "testimonials": testimonials
     }
     return render(request, "web/home.html", context=context)
 
