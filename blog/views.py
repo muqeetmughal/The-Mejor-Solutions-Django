@@ -19,8 +19,10 @@ def blog_detail(request, slug):
 
     recent_posts = Post.objects.filter().order_by('-id')[:5]
 
-    categories = Category.objects.all()
+    
 
-    return render(request, "blog/detail.html", context={"post": post, "recent_posts": recent_posts, "categories": categories})
+    # categories = Category.objects.all()
+
+    return render(request, "blog/detail.html", context={"post": post, "recent_posts": recent_posts})
 
 

@@ -30,7 +30,7 @@
             class="breadcrumb breadcrumb-light custom-title-with-icon-primary d-block"
           >
             <li><a href="#">Home</a></li>
-            <li class="active">Our Insights</li>
+            <li class="active">Our Blog</li>
           </ul>
           <h1 class="custom-text-10 font-weight-bold">{{post.title}}</h1>
         </div>
@@ -284,105 +284,22 @@
               Recent Comments
             </h3>
             <div class="pb-2 mb-1">
+
+              {% for comment in post.comments.all %}
               <a
                 href="#"
                 class="text-color-default text-2 mb-0 d-block text-decoration-none line-height-4"
-                >Admin on
-                <strong class="text-color-dark text-hover-primary text-4"
-                  >Vivamus sollicitudin</strong
+                >{{comment.comment}} <br>by
+                <strong class="text-color-dark text-hover-primary text-4">{{comment.name}}</strong
                 >
                 <span class="text-uppercase text-1 d-block pt-1 pb-3"
                   >10 Jan 2022</span
                 ></a
               >
-              <a
-                href="#"
-                class="text-color-default text-2 mb-0 d-block text-decoration-none line-height-4"
-                >John Doe on
-                <strong class="text-color-dark text-hover-primary text-4"
-                  >Lorem ipsum dolor</strong
-                >
-                <span class="text-uppercase text-1 d-block pt-1 pb-3"
-                  >10 Jan 2022</span
-                ></a
-              >
-              <a
-                href="#"
-                class="text-color-default text-2 mb-0 d-block text-decoration-none line-height-4"
-                >Admin on
-                <strong class="text-color-dark text-hover-primary text-4"
-                  >Consectetur adipiscing</strong
-                >
-                <span class="text-uppercase text-1 d-block pt-1 pb-3"
-                  >10 Jan 2022</span
-                ></a
-              >
+              {% endfor %}
             </div>
           </div>
-          <div class="py-1 clearfix">
-            <hr class="my-2" />
-          </div>
-          <div class="px-3 mt-4">
-            <h3
-              class="text-color-dark text-capitalize font-weight-bold text-5 m-0"
-            >
-              Categories
-            </h3>
-            <ul class="nav nav-list flex-column mt-2 mb-0 p-relative right-9">
-              {% for category in categories %}
-              <li class="nav-item">
-                <a class="nav-link bg-transparent border-0" href="#">{{category.get_all_children}} (2)</a>
-              </li>
-              {% endfor %}
-              {% comment %} <li class="nav-item">
-                <a class="nav-link bg-transparent border-0" href="#"
-                  >Design (2)</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link bg-transparent border-0 active" href="#"
-                  >Photos (4)</a
-                >
-                <ul>
-                  <li class="nav-item">
-                    <a class="nav-link bg-transparent border-0" href="#"
-                      >Animals</a
-                    >
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link bg-transparent border-0 active" href="#"
-                      >Business</a
-                    >
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link bg-transparent border-0" href="#"
-                      >Sports</a
-                    >
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link bg-transparent border-0" href="#"
-                      >People</a
-                    >
-                  </li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link bg-transparent border-0" href="#"
-                  >Videos (3)</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link bg-transparent border-0" href="#"
-                  >Lifestyle (2)</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link bg-transparent border-0" href="#"
-                  >Technology (1)</a
-                >
-              </li> {% endcomment %}
-            </ul>
-          </div>
+        
         </aside>
       </div>
     </div>
